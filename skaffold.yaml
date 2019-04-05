@@ -1,0 +1,13 @@
+apiVersion: skaffold/v1beta7
+kind: Config
+build:
+  artifacts:
+  - image: angular-nginx
+    context: src/main-spa
+  - image: edge-api
+    context: src/edge-api
+deploy:
+  kubectl:
+    manifests:
+    - "src/**/k8s"
+    - "src/ingress.yaml"

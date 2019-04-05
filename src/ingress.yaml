@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: edge-ingress
+  namespace: default
+spec:
+  rules:
+  - host: foo.bar.com # map this in your hosts file
+    http:
+      paths:
+      - path: /api
+        backend:
+          serviceName: edge-api-gateway
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: angular-app-gateway
+          servicePort: 80
