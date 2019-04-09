@@ -5,8 +5,7 @@ metadata:
   namespace: default
 spec:
   rules:
-  - host: foo.bar.com # map this in your hosts file
-    http:
+  - http:
       paths:
       - path: /api
         backend:
